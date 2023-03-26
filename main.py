@@ -35,7 +35,6 @@ predictions = model.predict(x_test)
 # Get class and attrs names
 values_map = preprocessing.preprocessData(data)[2]
 attrs_values_map = preprocessing.preprocessData(data)[3]
-print(attrs_values_map)
 
 # Print predictions
 for idx, val in enumerate(predictions):
@@ -43,4 +42,7 @@ for idx, val in enumerate(predictions):
     names = functions.AttrValueNames(attr, attrs_values_map, x_test[idx])
     print('Predicted: ', values_map[val], 'Data: ',  names, 'Actual: ', values_map[y_test[idx]])
 
+
+# Show graphs
 charts.showClassesGraph(predictions, y_test, values_map)
+charts.showConfusionMatrixGraph(predictions, y_test)
